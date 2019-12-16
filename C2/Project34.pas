@@ -4,26 +4,42 @@ uses
   Math;
 
 const
-  N = 30;
+  N = 70;
 var
   a: array [1..N] of integer;
-  i, x, y: integer;
+  i, x, y, k: integer;
+  found: boolean;
 
 begin
   randomize();
   for i := 1 to N do
-    a[i] := random(20);
+    a[i] := random(40) - 20;
   for i := 1 to N do
-    write(a[i], ' ');
+    Write(a[i], ' ');
   Writeln();
 
-  x := 0;
-  y := 20;
+  k := 0;
+  found := False;
   for i := 1 to N do
-  begin
-    x := max(x, a[i]);
-    y := min(y, a[i]);
-  end;
+    if a[i] mod 2 = 0 then
+      if found then
+        continue
+      else
+      begin
+        if k = 0 then
+        begin
+          x := a[i];
+          y := a[i];
+          k := 1;
+        end
+        else
+        begin
+          x := max(x, a[i]);
+          y := min(y, a[i]);
+
+        end;
+      end;
+
 
   writeln(x - y);
   readln();
