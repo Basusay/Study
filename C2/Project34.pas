@@ -4,16 +4,16 @@ uses
   Math;
 
 const
-  N = 70;
+  N = 5;
 var
-  a: array [1..N] of integer;
+  a: array [1..N] of integer = (5, 10, 12, 19, 8);
   i, x, y, k: integer;
   found: boolean;
 
 begin
-  randomize();
-  for i := 1 to N do
-    a[i] := random(40) - 20;
+  //randomize();
+  //for i := 1 to N do
+    //a[i] := random(40) - 20;
   for i := 1 to N do
     Write(a[i], ' ');
   Writeln();
