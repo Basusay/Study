@@ -7,7 +7,7 @@ const
   N = 5;
 var
   a: array [1..N] of integer = (5, 10, 12, 19, 8);
-  i, x, y, k: integer;
+  i, x, y: integer;
   found: boolean;
 
 begin
@@ -18,19 +18,15 @@ begin
     Write(a[i], ' ');
   Writeln();
 
-  k := 0;
   found := False;
   for i := 1 to N do
     if a[i] mod 2 = 0 then
-      if found then
-        continue
-      else
       begin
-        if k = 0 then
+        if found = False  then
         begin
           x := a[i];
           y := a[i];
-          k := 1;
+          found := True;
         end
         else
         begin
